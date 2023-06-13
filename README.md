@@ -18,4 +18,59 @@
 4. We performed a join on the 'merchant_name', 'main_category', 'sub_category', and 'product' features.
 4. We transformed the resulting joined features into a keyword matching matrix.
 
-## The Model
+## About The Models
+### <center>First Model Architecture & Evaluation</center>
+<p align="center">
+  <img width="400" height="350" src="https://github.com/mlanaAlana/Ngirit-Machine/blob/main/gambar/firstModel_arch.jpg">
+</p>
+<br>
+<p align="center">
+  <img width="400" height="350" src="https://github.com/mlanaAlana/Ngirit-Machine/blob/main/gambar/firstModel_ev1.jpg">
+</p>
+<br>
+<p align="center">
+  <img width="400" height="350" src="https://github.com/mlanaAlana/Ngirit-Machine/blob/main/gambar/firstModel_ev2.jpg">
+</p>
+<br>
+
+### <center>Second Model Architecture & Evaluation</center>
+<p align="center">
+  <img width="400" height="350" src="https://github.com/mlanaAlana/Ngirit-Machine/blob/main/gambar/secondModel_arch.jpg">
+</p>
+<br>
+<p align="center">
+  <img width="400" height="350" src="https://github.com/mlanaAlana/Ngirit-Machine/blob/main/gambar/secondModel_ev1.jpg">
+</p>
+<br>
+<p align="center">
+  <img width="400" height="350" src="https://github.com/mlanaAlana/Ngirit-Machine/blob/main/gambar/secondModel_ev2.jpg">
+</p>
+<br>
+
+### <center>Third Model Architecture & Evaluation</center>
+<p align="center">
+  <img width="400" height="350" src="https://github.com/mlanaAlana/Ngirit-Machine/blob/main/gambar/thirdModel_arch.jpg">
+</p>
+<br>
+<p align="center">
+  <img width="400" height="350" src="https://github.com/mlanaAlana/Ngirit-Machine/blob/main/gambar/thirdModel_ev1.jpg">
+</p>
+<br>
+<p align="center">
+  <img width="400" height="350" src="https://github.com/mlanaAlana/Ngirit-Machine/blob/main/gambar/thirdModel_ev2.jpg">
+</p>
+<br>
+
+### <center>Final Model Architecture & Evaluation</center>
+<p align="center">
+  <img width="400" height="350" src="https://github.com/mlanaAlana/Ngirit-Machine/blob/main/gambar/finalModel_arch.jpg">
+</p>
+<br>
+<p align="center">
+  <img width="400" height="350" src="https://github.com/mlanaAlana/Ngirit-Machine/blob/main/gambar/finalModel_ev1.jpg">
+</p>
+<br>
+<p align="center">
+  <img width="400" height="350" src="https://github.com/mlanaAlana/Ngirit-Machine/blob/main/gambar/finalModel_ev2.jpg">
+</p>
+<br>
