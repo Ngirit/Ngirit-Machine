@@ -20,6 +20,8 @@ model = tf.keras.models.load_model('./modelCapstone.h5')
 data = pd.read_csv('ngirit_datasetnew.csv')
 data['combined_features'] = data[['merchant_name', 'main_category', 'sub_category', 'product']].apply(lambda x: ' '.join(x), axis=1)
 cv = CountVectorizer()
+label_encoder = LabelEncoder()
+label_encoder.fit(data['sub_category'])
 cv.fit(data['combined_features'])
 
 app = FastAPI()
