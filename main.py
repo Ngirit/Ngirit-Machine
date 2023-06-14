@@ -10,8 +10,9 @@ def home():
 
 @app.route("/recommend", methods=["POST"])
 def recommend():
-    money = float(request.form.get("money"))
-    sub_category = request.form.get("sub_category")
+    if request.method == 'POST':
+        money = float(request.form.get("money"))
+        sub_category = request.form.get("sub_category")
     recommended_products = predict_and_recommend_products(money, sub_category, data)
 
     if recommended_products is None:
