@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 # Load and preprocess your dataset
 data = pd.read_csv('ngirit_datasetnew.csv')
