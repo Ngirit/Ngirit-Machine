@@ -11,16 +11,11 @@ def home():
 @app.route("/recommend", methods=["POST"])
 def recommend():
     if request.method == 'POST':
-        money = request.form.get("money")
-        sub_category = request.form.get("sub_category")
-
-        if money is None or sub_category is None:
-            return jsonify({"error": "Invalid data. Please provide 'money' and 'sub_category'."})
-
         try:
-            money = float(money)
+            money = float(request.form.get("money"))
+            sub_category = str(request.form.get("sub_category"))
         except ValueError:
-            return jsonify({"error": "Invalid data. 'money' must be a number."})
+            return jsonify({"error": "Invalid input data"})
 
         recommended_products = predict_and_recommend_products(money, sub_category, data)
 
@@ -42,6 +37,8 @@ def recommend():
                 results.append(result)
 
             return jsonify({"recommended_products": results})
+    else:
+        return jsonify({"error": "Method not allowed"})
 
 if (__name__ == "__main__"):
      app.run(host="0.0.0.0", port = 5000, debug=False)
