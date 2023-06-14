@@ -1,10 +1,11 @@
 import pandas as pd
 import numpy as np
+import tensorflow as tf
 
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.preprocessing import LabelEncoder
+#from sklearn.feature_extraction.text import CountVectorizer
+#from sklearn.preprocessing import LabelEncoder
 from keras.models import load_model
-from preprocessed_data import data
+from preprocessed_data import data, cv, label_encoder
 
 def predict_and_recommend_products(price, sub_category, data):
     if sub_category not in data['sub_category'].values:
@@ -12,17 +13,17 @@ def predict_and_recommend_products(price, sub_category, data):
 
     # Create a dataframe with the input data
     input_data = pd.DataFrame({'price': [price], 'sub_category': [sub_category]})
-    
+
     # Preprocess the input data
     input_data['rating'] = data['rating'].mean()  # Set the rating as the average rating in the dataset
-    input_data['sub_category_encoded'] = LabelEncoder.transform(input_data['sub_category'])
+    input_data['sub_category_encoded'] = label_encoder.transform(input_data['sub_category'])
     input_data['combined_features'] = input_data[['sub_category']].apply(lambda x: ' '.join(x), axis=1)
     
     # Transform the input data using the CountVectorizer
-    input_features = CountVectorizer.transform(input_data['combined_features']).toarray()
+    input_features = cv.transform(input_data['combined_features']).toarray()
 
     # Load model
-    model = load_model('modelCaptsone', compile=False)
+    model = tf.keras.models.load_model('./modelCapstone.h5')
 
     # Make predictions using the trained model
     predictions = model.predict(input_features)
