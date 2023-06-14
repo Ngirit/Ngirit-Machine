@@ -11,28 +11,37 @@ def home():
 @app.route("/recommend", methods=["POST"])
 def recommend():
     if request.method == 'POST':
-        money = float(request.form.get("money"))
+        money = request.form.get("money")
         sub_category = request.form.get("sub_category")
-    recommended_products = predict_and_recommend_products(money, sub_category, data)
 
-    if recommended_products is None:
-        return jsonify({"error": "No recommendations found"})
-    else:
-        results = []
-        for i, row in recommended_products.iterrows():
-            product = row['product']
-            merchant_name = row['merchant_name']
-            price = row['price']
-            rating = row['rating']
-            result = {
-                "product": product,
-                "merchant_name": merchant_name,
-                "price": price,
-                "rating": rating
-            }
-            results.append(result)
+        if money is None or sub_category is None:
+            return jsonify({"error": "Invalid data. Please provide 'money' and 'sub_category'."})
 
-        return jsonify({"recommended_products": results})
+        try:
+            money = float(money)
+        except ValueError:
+            return jsonify({"error": "Invalid data. 'money' must be a number."})
+
+        recommended_products = predict_and_recommend_products(money, sub_category, data)
+
+        if recommended_products is None:
+            return jsonify({"error": "No recommendations found"})
+        else:
+            results = []
+            for i, row in recommended_products.iterrows():
+                product = row['product']
+                merchant_name = row['merchant_name']
+                price = row['price']
+                rating = row['rating']
+                result = {
+                    "product": product,
+                    "merchant_name": merchant_name,
+                    "price": price,
+                    "rating": rating
+                }
+                results.append(result)
+
+            return jsonify({"recommended_products": results})
 
 if (__name__ == "__main__"):
      app.run(host="0.0.0.0", port = 5000, debug=False)
