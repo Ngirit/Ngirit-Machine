@@ -76,6 +76,6 @@ def predict_text(req: RequestText, response: Response):
         response.status_code = 500
         return "Internal Server Error"
     
-port = os.environ.get("PORT", 8080)
+port = os.environ.get("PORT", 5000)
 print(f"Listening to http://0.0.0.0:{port}")
 uvicorn.run(app, host='0.0.0.0',port=port)
